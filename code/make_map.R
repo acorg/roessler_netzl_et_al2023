@@ -44,7 +44,7 @@ map_single <- optimizeMap(map_single, number_of_dimensions = 2, number_of_optimi
                           options =  list(ignore_disconnected = TRUE))
 
 # Copy of the same map for alignment
-alignment_map <- read.acmap("../CoVAIL_trial/data/maps/alignment_map.ace")
+alignment_map <- read.acmap("./data/maps/alignment_map.ace")
 map_single <- realignMap(map_single, alignment_map)
 
 save.acmap(map_single, "./data/maps/map-OmicronI+II+III-thresholded-single_exposure.ace")
