@@ -46,7 +46,7 @@ sr_colors <- read.csv(file = "./data/metadata/sr_group_colors.csv", header = TRU
 
 # set the single exposure groups
 single_exposure_sr_groups <- c("delta conv.", "alpha/alpha+E484K conv.","beta conv.","mRNA1273/mRNA1273","AZ/AZ","AZ/BNT","BNT/BNT","BA.1 conv." ,"BA.2 conv.","BA.5 conv.", "WT conv.",
-  "BNT/BNT/BNT", "CK.2.1.1 conv.")
+  "CK.2.1.1 conv.")
 
 single_exposure_sr <- srNames(map_orig)[as.character(srGroups(map_orig)) %in% single_exposure_sr_groups]
 
