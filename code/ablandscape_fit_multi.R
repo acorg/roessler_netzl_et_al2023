@@ -45,9 +45,10 @@ map_orig <- read.acmap(paste0("./data/maps/map-OmicronI+II+III-thresholded-full-
 sr_colors <- read.csv(file = "./data/metadata/sr_group_colors.csv", header = TRUE, stringsAsFactors = FALSE, sep = ";", row.names = "SerumGroup")
 
 # set the single exposure groups
-single_exposure_sr_groups <- c("delta conv.", "alpha/alpha+E484K conv.","beta conv.","mRNA1273/mRNA1273","AZ/AZ","AZ/BNT","BNT/BNT","BA.1 conv." ,"BA.2 conv.","BA.5 conv.", "WT conv.",
+single_exposure_sr_groups <- c("delta conv.", "alpha/alpha+E484K conv.","beta conv.","mRNA1273/mRNA1273","AZ/AZ","AZ/BNT", "BA.1 conv." ,"BA.2 conv.","BA.5 conv.",
   "CK.2.1.1 conv.")
 
+vacc_groups <- c("BNT/BNT", "BNT/BNT/BNT", "WT conv.")
 single_exposure_sr <- srNames(map_orig)[as.character(srGroups(map_orig)) %in% single_exposure_sr_groups]
 
 # subset the map to only multi exposure sera
@@ -110,13 +111,26 @@ angle <- list(
   # zoom = 1.1646 # higher is more zoomed out
 )
 
-
 lndscp_list <- list()
 data3js <- base_plot_data3js(map, lndscp_fits, agNames(map), lims, agNames(map))
 
+# do plot with D614G conv., BNT/BNT and BNT/BNT/BNT
+lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(1:3),], lndscp_fits[c(1:3)], map, gmt_data, agNames(map), agNames(map), lndscp_colors = sr_colors)
+
+lndscp <-r3js(
+  lndscp_3js,
+  rotation = c(-1.5836, 0.0100, -0.0131),
+  zoom = angle$zoom
+)
+lndscp_list[["Vacc_Anc."]] <- lndscp
+save_name <- file.path(figure_dir, paste0(fit_ags, "vacc_anc_gmt"))
+plot_single_landscape_panel(lndscp, label = "", save_name = save_name, delete_html = FALSE)
+
+
+
 # do plot with boost & conv * boost
 # first ba.1 rows 2, 4
-lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(1,3),], lndscp_fits[c(1,3)], map, gmt_data, agNames(map), agNames(map), lndscp_colors = sr_colors)
+lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(1+3,3+3),], lndscp_fits[c(1+3,3+3)], map, gmt_data, agNames(map), agNames(map), lndscp_colors = sr_colors)
     
 lndscp <-r3js(
           lndscp_3js,
@@ -129,7 +143,7 @@ save_name <- file.path(figure_dir, paste0(fit_ags, "BA.1_gmt_landscapes"))
 plot_single_landscape_panel(lndscp, label = "", save_name = save_name, delete_html = FALSE)
 
 
-lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(2,4),], lndscp_fits[c(2,4)], map, gmt_data, agNames(map), agNames(map), lndscp_colors = sr_colors)
+lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(2+3,4+3),], lndscp_fits[c(2+3,4+3)], map, gmt_data, agNames(map), agNames(map), lndscp_colors = sr_colors)
     
 lndscp <-r3js(
           lndscp_3js,

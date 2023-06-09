@@ -44,9 +44,11 @@ map_orig <- read.acmap(paste0("./data/maps/map-OmicronI+II+III-thresholded-full-
 sr_colors <- read.csv(file = "./data/metadata/sr_group_colors.csv", header = TRUE, stringsAsFactors = FALSE, sep = ";", row.names = "SerumGroup")
 
 # set the single exposure groups
-single_exposure_sr_groups <- c("delta conv.", "alpha/alpha+E484K conv.","beta conv.","mRNA1273/mRNA1273","AZ/AZ","AZ/BNT","BNT/BNT","BA.1 conv." ,"BA.2 conv.","BA.5 conv.", "WT conv.",
-   "CK.2.1.1 conv.")
+# set the single exposure groups
+single_exposure_sr_groups <- c("delta conv.", "alpha/alpha+E484K conv.","beta conv.","mRNA1273/mRNA1273","AZ/AZ","AZ/BNT", "BA.1 conv." ,"BA.2 conv.","BA.5 conv.",
+                               "CK.2.1.1 conv.")
 
+vacc_groups <- c("BNT/BNT", "BNT/BNT/BNT", "WT conv.")
 single_exposure_sr <- srNames(map_orig)[as.character(srGroups(map_orig)) %in% single_exposure_sr_groups]
 
 # subset the map to only multi exposure sera
@@ -162,6 +164,14 @@ for(srg in 1:length(unique(titertables_groups$sr_group))){
           zoom = angle$zoom
         )
 
+        if(unique(titertables_groups$sr_group)[srg] %in% vacc_groups){
+          lndscp <-r3js(
+            lndscp_3js,
+            rotation = c(-1.5836, 0.0100, -0.0131),
+            zoom = angle$zoom
+          )
+        
+        }
         
         srg_n <- titertables_groups$sr_group[target_rows]
         srg_n <- gsub("/", "_", srg_n)
