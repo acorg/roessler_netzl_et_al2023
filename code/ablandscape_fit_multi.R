@@ -120,12 +120,11 @@ lndscp_3js <- plot_landscapes_from_list(data3js, titertables_groups[c(1:3),], ln
 lndscp <-r3js(
   lndscp_3js,
   rotation = c(-1.5836, 0.0100, -0.0131),
-  zoom = angle$zoom
+  zoom = 2
 )
 lndscp_list[["Vacc_Anc."]] <- lndscp
 save_name <- file.path(figure_dir, paste0(fit_ags, "vacc_anc_gmt"))
 plot_single_landscape_panel(lndscp, label = "", save_name = save_name, delete_html = FALSE)
-
 
 
 # do plot with boost & conv * boost

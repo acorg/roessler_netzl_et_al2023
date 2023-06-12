@@ -168,8 +168,9 @@ for(srg in 1:length(unique(titertables_groups$sr_group))){
           lndscp <-r3js(
             lndscp_3js,
             rotation = c(-1.5836, 0.0100, -0.0131),
-            zoom = angle$zoom
+            zoom = 2
           )
+        
         
         }
         
