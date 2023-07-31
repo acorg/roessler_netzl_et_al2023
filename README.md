@@ -1,8 +1,10 @@
 # roessler_netzl_et_al2023
-This repository contains the code for the manuscript "Characterizing SARS-CoV-2 neutralization profiles after bivalent boosting using antigenic cartography" by Annika Rössler, Antonia Netzl, et. al., 2023
+This repository contains the code for the manuscript "Characterizing SARS-CoV-2 neutralization profiles after bivalent boosting using antigenic cartography" by Annika Rössler, Antonia Netzl, et. al., 2023. Please cite the original publication in Nature Communications if any data or code from this repository is used. 
 
-The raw data will be added at the stage of acceptance of the manuscript in the `data` directory. The code for the analyses shown in the main manuscript can be found in the `code` directory. 
+Raw data can be found in the `data` directory. The code for the analyses shown in the main manuscript can be found in the `code` directory. To obtain a titer table for antigenic map construction, execute the `excel_to_titertable.R` script. To construct maps, first execute the `make_map.R` followed by the `reactivity_adjusted_maps.R` scripts. Antibody landscapes are fit in the `ablandscapes_fit_multi.R` and  `ablandscapes_fit_idvl.R` scripts. The `3D_landscapes.Rmd` creates an html script with 3D illustrations of the landscapes. 
+
 All SOM analyses can be found in the `som` directory. 
+
 The `function` directory contains utility functions, including two bash scripts to screenshot and crop html landscapes. For cropping ImageMagick was used: 
 ImageMagick Studio LLC. (2023). ImageMagick. Retrieved from https://imagemagick.org
 

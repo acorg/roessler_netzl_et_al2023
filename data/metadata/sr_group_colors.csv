@@ -1,0 +1,29 @@
+SerumGroup;Color
+mRNA1273/mRNA1273;#5a5a5a
+BNT/BNT;#737373
+AZ/BNT;#8d8d8d
+AZ/AZ;#9a9a9a
+BNT/BNT/BNT;#3A3A3A
+WT conv.;#393B79
+D614G conv.;#393b79
+alpha/alpha+E484K conv.;#637939
+beta conv.;#e7ba52
+delta conv.;#d18652
+BA.1 conv.;#EF3737
+BA.2 conv.;#5B004C
+BA.5 conv.;#077e97
+Vacc+BA.1;#b57171
+Vacc+BA.2;#b85090
+Vacc+BA.5;#f25b5b
+BA.1 reinf.;#c91010
+BA.2 reinf.;#a10c7d
+BA.2+BA.5 reinf.;#D34B5B
+Vacc+BA.1 reinf.;#f14f4f
+Vacc+BA.2 reinf.;#ef24be
+AZ/AZ+delta;#d69466
+BNT/BNT+delta;#a9602d
+3x Vacc + bivalent BA.1 boost;#ff6060
+3x Vacc + bivalent BA.4/5 boost;#5cc8dc
+3x Vacc + conv. + bivalent BA.1 boost;#993939
+3x Vacc + conv. + bivalent BA.4/5 boost;#2e646e
+CK.2.1.1 conv.;#9bcbd5
